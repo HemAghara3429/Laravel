@@ -7,6 +7,7 @@ use App\Http\Controllers\SubviewController;
 use App\Http\Controllers\MessageBanner;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\prefix;
 
 Route::get('/',function(){
     return view('welcome');
@@ -64,3 +65,11 @@ Route::view('/url/urlgeneration','url.urlgeneration');
 //Name route:here short name route and generate the url by route name and route parameter.
 
 Route::view('/name/nameroute','nameroutes.namedroutes')->name('about');
+
+//prefix route:
+//controller prefix  route
+route::prefix('student')->group(function () {
+    Route::get('/add', [prefix::class, 'addStudent']);
+    Route::get('/list', [prefix::class, 'listStudent']);
+});
+
