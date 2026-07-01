@@ -73,3 +73,6 @@ route::prefix('student')->group(function () {
     Route::get('/list', [prefix::class, 'listStudent']);
 });
 
+//middleware route:
+
+Route::view('/middleware','middleware.middleware');
