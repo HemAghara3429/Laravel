@@ -53,7 +53,10 @@ Route::get('/message-banner',[MessageBanner::class,'messageshow']);
 Route::get('/form',[FormController::class,'submitform']);
 Route::post('/form',[FormController::class,'getuserdetalis']);
 
-//Student Controller Route:here fill the form in view file that data handle by Laravel.
+//Student Controller Route:here fill the form in view file that data handle by Laravel. (custom validation rule that check the input value is uppercase or not.)
 Route::get('/student',[StudentController::class,'submitform']);
 Route::post('/student',[StudentController::class,'getstudentdetails']);
-    
+
+//Url generation :here generate the url by route name and route parameter..
+
+Route::view('/url/urlgeneration','url.urlgeneration');
