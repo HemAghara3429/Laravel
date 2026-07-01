@@ -60,3 +60,7 @@ Route::post('/student',[StudentController::class,'getstudentdetails']);
 //Url generation :here generate the url by route name and route parameter..
 
 Route::view('/url/urlgeneration','url.urlgeneration');
+
+//Name route:here short name route and generate the url by route name and route parameter.
+
+Route::view('/name/nameroute','nameroutes.namedroutes')->name('about');
