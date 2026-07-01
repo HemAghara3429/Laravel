@@ -6,6 +6,7 @@ use App\Http\Controllers\BladeController;
 use App\Http\Controllers\SubviewController;
 use App\Http\Controllers\MessageBanner;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\StudentController;
 
 Route::get('/',function(){
     return view('welcome');
@@ -52,3 +53,7 @@ Route::get('/message-banner',[MessageBanner::class,'messageshow']);
 Route::get('/form',[FormController::class,'submitform']);
 Route::post('/form',[FormController::class,'getuserdetalis']);
 
+//Student Controller Route:here fill the form in view file that data handle by Laravel.
+Route::get('/student',[StudentController::class,'submitform']);
+Route::post('/student',[StudentController::class,'getstudentdetails']);
+    

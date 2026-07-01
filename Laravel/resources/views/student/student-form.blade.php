@@ -9,61 +9,59 @@
 </head>
 
 <body>
-    <h2>ADD NEW USER</h2>
 
-    <form action="/form" method="POST">
+    <h2>ADD NEW STUDENT</h2>
+
+    <form action="/student" method="POST">
         @csrf
-        <input type="text" placeholder="enter user name" name="username" required value="{{ old('username') }}">
+        <input type="text" placeholder="enter student name" name="studentname" required
+            value="{{ old('studentname') }}">
         {{-- form validation --}}
         <span>
-            @error('username')
+            @error('studentname')
                 {{ $message }}
             @enderror
         </span>
 
         <br><br>
 
-        <input type="text" placeholder="enter user email" name="useremail" required value="{{ old('useremail') }}">
+        <input type="text" placeholder="enter student email" name="studentemail" required
+            value="{{ old('studentemail') }}">
         {{-- form validation --}}
         <span>
-            @error('useremail')
+            @error('studentemail')
                 {{ $message }}
             @enderror
         </span>
 
         <br><br>
 
-        <input type="text" placeholder="enter user city" name="usercity" required value="{{ old('usercity') }}">
+        <input type="text" placeholder="enter student city" name="studentcity" required
+            value="{{ old('studentcity') }}">
         {{-- form validation --}}
         <span>
-            @error('usercity')
+            @error('studentcity')
                 {{ $message }}
             @enderror
         </span>
 
         <br><br>
-
 
         <label>Gender</label><br>
-
-        <input type="radio" name="gender" value="Male" required {{ old('gender') == 'Male' ? 'checked' : '' }}> Male
-
-        <input type="radio" name="gender" value="Female" required {{ old('gender') == 'Female' ? 'checked' : '' }}> Female
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label>
         {{-- form validation --}}
         <span>
-            @error('gender')
+            @error('gender ')
                 {{ $message }}
             @enderror
         </span>
         <br><br>
-
         <label>Hobbies</label><br>
-
-        <input type="checkbox" name="hobbies[]" value="Cricket" > Cricket
-
+        <input type="checkbox" name="hobbies[]" value="Cricket"> Cricket
         <input type="checkbox" name="hobbies[]" value="Reading"> Reading
-
-        <input type="checkbox" name="hobbies[]" value="Music"> Music
         {{-- form validation --}}
         <span>
             @error('hobbies')
@@ -71,9 +69,7 @@
             @enderror
         </span>
         <br><br>
-
         <label>Skill Level (0-100)</label><br>
-
         <input type="range" name="skill" min="0" max="100" required value="{{ old('skill') }}">
         {{-- form validation --}}
         <span>
@@ -81,35 +77,12 @@
                 {{ $message }}
             @enderror
         </span>
+
         <br><br>
-
-        <label>Course</label><br>
-
-        <select name="course" required>
-
-            <option value="">Select Course</option>
-
-            <option value="PHP">PHP</option>
-
-            <option value="Laravel">Laravel</option>
-
-            <option value="Java">Java</option>
-
-            <option value="Python">Python</option>
-
-        </select>
-        {{-- form validation --}}
-        <span>
-            @error('course')
-                {{ $message }}
-            @enderror
-        </span>
-        <br><br>
-
-
         <button type="submit" name="btn">Submit Form</button>
-
     </form>
+
+
 </body>
 
 </html>
