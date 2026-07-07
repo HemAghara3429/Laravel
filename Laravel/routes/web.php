@@ -13,6 +13,7 @@ use App\Http\Middleware\CountryCheck;
 use App\Http\Controllers\Databasecontroller;
 use App\Http\Controllers\DatabaseTableViewController;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\QueryBuilderController;
 
 Route::get('/',function(){
     return view('welcome');
@@ -106,3 +107,12 @@ Route::get('/showdata',[DatabaseTableViewController::class,'getStudent']);
 //Api call Example...
 
 Route::get('/getdata',[ApiController::class,'getUser']);
+
+
+//query builder route example .....
+Route::get('/querybuilder',[QueryBuilderController::class,'getinformation']);
+Route::get('/querycondition',[QueryBuilderController::class,'conditioninformation']);
+Route::get('insertquery',[QueryBuilderController::class,'insertquery']);
+Route::get('/queryupdate',[QueryBuilderController::class,'udatequery']);
+Route::get('/querydelete',[QueryBuilderController::class,'deletequery']);
+
