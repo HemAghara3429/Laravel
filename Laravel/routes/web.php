@@ -13,6 +13,8 @@ Route::get('/',function(){
     return view('welcome');
 });
 
+Route::view('/middleware','middleware.middleware');
+
 Route::get('/home', function () {
     return view('home');
 });
@@ -75,4 +77,6 @@ route::prefix('student')->group(function () {
 
 //middleware route:
 
-Route::view('/middleware','middleware.middleware');
+Route::view('/home-as', 'welcome')->middleware('Middlewaregroup');
+
+Route::view('/about-as', 'About')->middleware('Middlewaregroup');
