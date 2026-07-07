@@ -10,6 +10,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\prefix;
 use App\Http\Middleware\NumberCheck;
 use App\Http\Middleware\CountryCheck;
+use App\Http\Controllers\Databasecontroller;
 
 Route::get('/',function(){
     return view('welcome');
@@ -87,3 +88,9 @@ Route::view('/about-as', 'About');
 
 //direct apply the middleware to the route this middleware are not define inside the bootstrap....
 Route::view('/directmiddleware','directmiddleware')->middleware(NumberCheck::class,CountryCheck::class);
+
+
+//database route example.
+
+
+Route::get('/database',[Databasecontroller::class,'databaseoperation']);
