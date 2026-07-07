@@ -14,6 +14,7 @@ use App\Http\Controllers\Databasecontroller;
 use App\Http\Controllers\DatabaseTableViewController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\QueryBuilderController;
+use App\Http\Controllers\EloquentQueryController;
 
 Route::get('/',function(){
     return view('welcome');
@@ -115,4 +116,12 @@ Route::get('/querycondition',[QueryBuilderController::class,'conditioninformatio
 Route::get('insertquery',[QueryBuilderController::class,'insertquery']);
 Route::get('/queryupdate',[QueryBuilderController::class,'udatequery']);
 Route::get('/querydelete',[QueryBuilderController::class,'deletequery']);
+
+//eloquent query builder route example ......
+
+Route::get('/getalldata',[EloquentQueryController::class,'getalldata']);
+Route::get('/conditionquery',[EloquentQueryController::class,'conditionquery']);
+Route::get('/insertquery',[EloquentQueryController::class,'insertquery']);
+Route::get('/updatequery',[EloquentQueryController::class,'updatequery']);
+
 
