@@ -8,6 +8,8 @@ use App\Http\Controllers\MessageBanner;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\prefix;
+use App\Http\Middleware\NumberCheck;
+use App\Http\Middleware\CountryCheck;
 
 Route::get('/',function(){
     return view('welcome');
@@ -75,8 +77,13 @@ route::prefix('student')->group(function () {
     Route::get('/list', [prefix::class, 'listStudent']);
 });
 
-//middleware route:
+//middleware route: group of the middleware apply
 
-Route::view('/home-as', 'welcome')->middleware('Middlewaregroup');
+Route::middleware('Middlewaregroup')->group(function(){
+Route::view('/home-as', 'welcome');
+Route::view('/about-as', 'About');
+});
 
-Route::view('/about-as', 'About')->middleware('Middlewaregroup');
+
+//direct apply the middleware to the route this middleware are not define inside the bootstrap....
+Route::view('/directmiddleware','directmiddleware')->middleware(NumberCheck::class,CountryCheck::class);
