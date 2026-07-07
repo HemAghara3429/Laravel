@@ -12,6 +12,7 @@ use App\Http\Middleware\NumberCheck;
 use App\Http\Middleware\CountryCheck;
 use App\Http\Controllers\Databasecontroller;
 use App\Http\Controllers\DatabaseTableViewController;
+use App\Http\Controllers\ApiController;
 
 Route::get('/',function(){
     return view('welcome');
@@ -100,3 +101,8 @@ Route::get('/database',[Databasecontroller::class,'databaseoperation']);
 //database table view example.
 
 Route::get('/showdata',[DatabaseTableViewController::class,'getStudent']);
+
+
+//Api call Example...
+
+Route::get('/getdata',[ApiController::class,'getUser']);
