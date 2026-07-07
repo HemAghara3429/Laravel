@@ -11,6 +11,7 @@ use App\Http\Controllers\prefix;
 use App\Http\Middleware\NumberCheck;
 use App\Http\Middleware\CountryCheck;
 use App\Http\Controllers\Databasecontroller;
+use App\Http\Controllers\DatabaseTableViewController;
 
 Route::get('/',function(){
     return view('welcome');
@@ -94,3 +95,8 @@ Route::view('/directmiddleware','directmiddleware')->middleware(NumberCheck::cla
 
 
 Route::get('/database',[Databasecontroller::class,'databaseoperation']);
+
+
+//database table view example.
+
+Route::get('/showdata',[DatabaseTableViewController::class,'getStudent']);
