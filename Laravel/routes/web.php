@@ -15,6 +15,7 @@ use App\Http\Controllers\DatabaseTableViewController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\QueryBuilderController;
 use App\Http\Controllers\EloquentQueryController;
+use App\Http\Controllers\FlashSessionController;
 use App\Http\Controllers\RouteMethodController;
 use App\Http\Controllers\HttpRequestController;
 Use App\Http\Controllers\SessionController;
@@ -145,3 +146,10 @@ Route::post('/login',[SessionController::class,'login']);
 Route::post('/logout',[SessionController::class,'logout']);
 Route::view('/login','login');
 Route::view('/profile','profile');
+
+
+//Flash session example of route.
+
+Route::view('/flashsession', 'FlashView');
+
+Route::post('/adduser', [FlashSessionController::class, 'adduser']);
