@@ -16,7 +16,7 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\QueryBuilderController;
 use App\Http\Controllers\EloquentQueryController;
 use App\Http\Controllers\RouteMethodController;
-
+use App\Http\Controllers\HttpRequestController;
 
 Route::get('/',function(){
     return view('welcome');
@@ -132,3 +132,8 @@ Route::get('/getalldata', [RouteMethodController::class, 'getalldata']);
 Route::post('/postdata', [RouteMethodController::class, 'postdata']);
 Route::match(['post','get'],'/getorpost',[RouteMethodController::class,'group']);
 Route::view('/formview', 'RouteMethodView');
+
+//http request class example....
+Route::view('/httpclassexample', 'HttpRequestView');
+
+Route::post('/httpclassexample', [HttpRequestController::class, 'getData']);
