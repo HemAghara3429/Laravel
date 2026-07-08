@@ -18,6 +18,7 @@ use App\Http\Controllers\EloquentQueryController;
 use App\Http\Controllers\FlashSessionController;
 use App\Http\Controllers\RouteMethodController;
 use App\Http\Controllers\HttpRequestController;
+use App\Http\Controllers\InsertDataController;
 Use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UploadController;
 
@@ -157,3 +158,8 @@ Route::post('/upload-file', [UploadController::class, 'upload']);
 
 Route::view('/language','LanguageView');
 
+
+//insert the datainto database.
+
+Route::view('/add','addstudentview');
+Route::post('/add-data',[InsertDataController::class,'insert']);
