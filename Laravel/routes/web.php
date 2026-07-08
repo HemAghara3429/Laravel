@@ -17,6 +17,7 @@ use App\Http\Controllers\QueryBuilderController;
 use App\Http\Controllers\EloquentQueryController;
 use App\Http\Controllers\RouteMethodController;
 use App\Http\Controllers\HttpRequestController;
+Use App\Http\Controllers\SessionController;
 
 Route::get('/',function(){
     return view('welcome');
@@ -137,3 +138,10 @@ Route::view('/formview', 'RouteMethodView');
 Route::view('/httpclassexample', 'HttpRequestView');
 
 Route::post('/httpclassexample', [HttpRequestController::class, 'getData']);
+
+//session example route
+
+Route::post('/login',[SessionController::class,'login']);
+Route::post('/logout',[SessionController::class,'logout']);
+Route::view('/login','login');
+Route::view('/profile','profile');
