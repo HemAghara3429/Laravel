@@ -153,3 +153,7 @@ Route::view('/profile','profile');
 Route::view('/upload', 'uploadfile');
 Route::post('/upload-file', [UploadController::class, 'upload']);
 
+//Language translate.....
+
+Route::view('/language','LanguageView');
+
