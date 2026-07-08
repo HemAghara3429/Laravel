@@ -15,6 +15,8 @@ use App\Http\Controllers\DatabaseTableViewController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\QueryBuilderController;
 use App\Http\Controllers\EloquentQueryController;
+use App\Http\Controllers\RouteMethodController;
+
 
 Route::get('/',function(){
     return view('welcome');
@@ -125,3 +127,8 @@ Route::get('/insertquery',[EloquentQueryController::class,'insertquery']);
 Route::get('/updatequery',[EloquentQueryController::class,'updatequery']);
 
 
+//diffrent type of route.
+Route::get('/getalldata', [RouteMethodController::class, 'getalldata']);
+Route::post('/postdata', [RouteMethodController::class, 'postdata']);
+Route::match(['post','get'],'/getorpost',[RouteMethodController::class,'group']);
+Route::view('/formview', 'RouteMethodView');
