@@ -19,6 +19,7 @@ use App\Http\Controllers\FlashSessionController;
 use App\Http\Controllers\RouteMethodController;
 use App\Http\Controllers\HttpRequestController;
 Use App\Http\Controllers\SessionController;
+use App\Http\Controllers\UploadController;
 
 Route::get('/',function(){
     return view('welcome');
@@ -149,7 +150,6 @@ Route::view('/profile','profile');
 
 
 //Flash session example of route.
+Route::view('/upload', 'uploadfile');
+Route::post('/upload-file', [UploadController::class, 'upload']);
 
-Route::view('/flashsession', 'FlashView');
-
-Route::post('/adduser', [FlashSessionController::class, 'adduser']);
