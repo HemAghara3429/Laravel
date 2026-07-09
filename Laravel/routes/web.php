@@ -16,6 +16,7 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\QueryBuilderController;
 use App\Http\Controllers\EloquentQueryController;
 use App\Http\Controllers\FlashSessionController;
+use App\Http\Controllers\GetDataController;
 use App\Http\Controllers\RouteMethodController;
 use App\Http\Controllers\HttpRequestController;
 use App\Http\Controllers\InsertDataController;
@@ -163,3 +164,9 @@ Route::view('/language','LanguageView');
 
 Route::view('/add','addstudentview');
 Route::post('/add-data',[InsertDataController::class,'insert']);
+
+//get data from the database.
+Route::get('/getstudent/list', [GetDataController::class, 'list']);
+
+//delete the data from the database.
+Route::get('/getstudent/delete/{id}', [GetDataController::class, 'delete']);
