@@ -1,5 +1,16 @@
 <div>
-    <table border="1">
+
+    <form action="{{ url('/search') }}" method="GET">
+
+        <input type="text" name="search" placeholder="Search by Name" value="{{ isset($search) ? $search : '' }}">
+
+        <button type="submit">Search</button>
+
+    </form>
+
+    <br>
+
+    <table border="1" cellpadding="10">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -7,21 +18,32 @@
             <th>Batch</th>
             <th>Operation</th>
         </tr>
-        @foreach ($student as $item)
+
+        @forelse($student as $item)
             <tr>
-
-
-
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->email }}</td>
                 <td>{{ $item->batch }}</td>
-                <td>
-                    <a href="{{ url('/getstudent/delete/' . $item->id) }}">Delete</a>
-                    <a href="{{ url('/getstudent/edit/' . $item->id) }}">Edit</a>
-                </td>
 
+                <td>
+                    <a href="{{ url('/getstudent/edit/' . $item->id) }}">Edit</a>
+
+                    |
+
+                    <a href="{{ url('/getstudent/delete/' . $item->id) }}">Delete</a>
+                </td>
             </tr>
-        @endforeach
+
+        @empty
+
+            <tr>
+                <td colspan="5" style="text-align:center;">
+                    No Student Found
+                </td>
+            </tr>
+        @endforelse
+
     </table>
+
 </div>

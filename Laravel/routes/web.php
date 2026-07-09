@@ -20,6 +20,7 @@ use App\Http\Controllers\GetDataController;
 use App\Http\Controllers\RouteMethodController;
 use App\Http\Controllers\HttpRequestController;
 use App\Http\Controllers\InsertDataController;
+use App\Http\Controllers\SearchController;
 Use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UploadController;
 
@@ -176,5 +177,8 @@ Route::get('/getstudent/delete/{id}', [GetDataController::class, 'delete']);
 Route::get('/getstudent/edit/{id}', [GetDataController::class, 'edit']);
 
 Route::put('/getstudent/update/{id}', [GetDataController::class, 'update']);
+
+//Search student detali route.
+Route::get('/search',[GetDataController::class,'search']);
 
 

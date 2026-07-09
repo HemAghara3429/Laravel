@@ -33,16 +33,27 @@ class GetDataController extends Controller
     function update(Request $request, $id)
     {
         $student = Student::find($id);
-        $student->id= $request->id;
+        $student->id = $request->id;
         $student->name = $request->name;
         $student->email = $request->email;
         $student->batch = $request->batch;
         $student->save();
 
-        if($student){
+        if ($student) {
             return "student detalis update.";
-        }else{
+        } else {
             return "student detalis are not update";
         }
+    }
+    public function search(Request $request)
+    {
+        $search = $request->search;
+
+        $studentData = Student::where('name', 'LIKE', "%$search%")->get();
+
+        return view('studentlist', [
+            'student' => $studentData,
+            'search' => $search
+        ]);
     }
 }
