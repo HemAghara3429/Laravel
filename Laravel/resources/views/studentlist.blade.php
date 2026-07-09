@@ -18,6 +18,7 @@
                 <td>{{ $item->batch }}</td>
                 <td>
                     <a href="{{ url('/getstudent/delete/' . $item->id) }}">Delete</a>
+                    <a href="{{ url('/getstudent/edit/' . $item->id) }}">Edit</a>
                 </td>
 
             </tr>

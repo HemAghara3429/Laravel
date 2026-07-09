@@ -170,3 +170,11 @@ Route::get('/getstudent/list', [GetDataController::class, 'list']);
 
 //delete the data from the database.
 Route::get('/getstudent/delete/{id}', [GetDataController::class, 'delete']);
+
+//edit the student detalis route example.
+
+Route::get('/getstudent/edit/{id}', [GetDataController::class, 'edit']);
+
+Route::put('/getstudent/update/{id}', [GetDataController::class, 'update']);
+
+
