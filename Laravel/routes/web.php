@@ -196,3 +196,7 @@ Route::view('/upload', 'upload');
 Route::post('/upload', [ImageController::class, 'upload']);
 
 Route::get('/listphoto', [ImageController::class, 'listimage']);
+
+//layoutview route example.
+
+Route::view('/layoutview','layoutView');
