@@ -184,3 +184,6 @@ Route::get('/pagination', [GetDataController::class, 'pagination']);
 
 // Multiple Delete
 Route::post('/getstudent/multiple-delete', [GetDataController::class, 'multipleDelete']);
+Route::get('/getstudent/multiple-delete', function () {
+    return redirect('/getstudent/list');
+});
