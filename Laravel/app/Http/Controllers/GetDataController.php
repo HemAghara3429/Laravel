@@ -1,59 +1,113 @@
-<?php
+<div>
 
-namespace App\Http\Controllers;
+    @if(session('success'))
+    <p style="color:green">{{ session('success') }}</p>
+    @endif
 
-use Illuminate\Http\Request;
-use App\Models\Student;
+    @if(session('error'))
+    <p style="color:red">{{ session('error') }}</p>
+    @endif
 
-class GetDataController extends Controller
-{
+    <form action="{{ url('/search') }}" method="GET">
 
-    function list(Request $request)
-    {
-        $studentData = Student::all();
-        return view('studentlist', ['student' => $studentData]);
+        <input type="text" name="search" placeholder="Search by Name"
+            value="{{ isset($search) ? $search : '' }}">
+
+        <button type="submit">Search</button>
+
+    </form>
+
+    <br>
+
+    <!-- Multiple Delete Form -->
+    <form action="{{ url('/multiple-delete') }}" method="POST">
+
+        @csrf
+
+        <button type="submit"
+            onclick="return confirm('Are you sure you want to delete selected records?')">
+            Delete Selected
+        </button>
+
+        <br><br>
+
+        <table border="1" cellpadding="10">
+
+            <tr>
+                <th>
+                    <input type="checkbox" id="checkAll">
+                </th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Batch</th>
+                <th>Operation</th>
+            </tr>
+
+            @forelse($student as $item)
+
+            <tr>
+
+                <td>
+                    <input type="checkbox"
+                        name="ids[]"
+                        value="{{ $item->id }}"
+                        class="checkbox">
+                </td>
+
+                <td>{{ $item->id }}</td>
+                <td>{{ $item->name }}</td>
+                <td>{{ $item->email }}</td>
+                <td>{{ $item->batch }}</td>
+
+                <td>
+                    <a href="{{ url('/getstudent/edit/' . $item->id) }}">Edit</a>
+
+                    |
+
+                    <a href="{{ url('/getstudent/delete/' . $item->id) }}"
+                        onclick="return confirm('Are you sure you want to delete this record?')">
+                        Delete
+                    </a>
+                </td>
+
+            </tr>
+
+            @empty
+
+            <tr>
+                <td colspan="6" style="text-align:center;">
+                    No Student Found
+                </td>
+            </tr>
+
+            @endforelse
+
+        </table>
+
+    </form>
+
+    <br>
+
+    {{ $student->links() }}
+
+</div>
+
+<style>
+    .w-5.h-5 {
+        width: 20px;
     }
+</style>
 
-    function delete($id)
-    {
-        $isDeleted = Student::destroy($id);
-        if ($isDeleted) {
-            return "Student Delete Successfully";
-        } else {
-            return "Student Are not Delete";
-        }
-    }
+<script>
+    // Select All Checkbox
+    document.getElementById('checkAll').addEventListener('click', function() {
 
-    function edit($id)
-    {
-        $student = Student::find($id);
-        return view('UpdateInformationView', ['data' => $student]);
-    }
+        let checkboxes = document.querySelectorAll('.checkbox');
 
-    function update(Request $request, $id)
-    {
-        $student = Student::find($id);
-        $student->id = $request->id;
-        $student->name = $request->name;
-        $student->email = $request->email;
-        $student->batch = $request->batch;
-        $student->save();
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = document.getElementById('checkAll').checked;
+        });
 
-        if ($student) {
-            return "student detalis update.";
-        } else {
-            return "student detalis are not update";
-        }
-    }
-    public function search(Request $request)
-    {
-        $search = $request->search;
-
-        $studentData = Student::where('name', 'LIKE', "%$search%")->get();
-
-        return view('studentlist', [
-            'student' => $studentData,
-            'search' => $search
-        ]);
-    }
-}
+    });
+</script>

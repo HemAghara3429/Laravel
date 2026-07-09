@@ -160,25 +160,27 @@ Route::post('/upload-file', [UploadController::class, 'upload']);
 
 Route::view('/language','LanguageView');
 
+// Add Student
+Route::view('/add', 'addstudentview');
+Route::post('/add-data', [InsertDataController::class, 'insert']);
 
-//insert the datainto database.
-
-Route::view('/add','addstudentview');
-Route::post('/add-data',[InsertDataController::class,'insert']);
-
-//get data from the database.
+// Display Student List
 Route::get('/getstudent/list', [GetDataController::class, 'list']);
 
-//delete the data from the database.
+// Delete Single Student
 Route::get('/getstudent/delete/{id}', [GetDataController::class, 'delete']);
 
-//edit the student detalis route example.
-
+// Edit Student
 Route::get('/getstudent/edit/{id}', [GetDataController::class, 'edit']);
 
+// Update Student
 Route::put('/getstudent/update/{id}', [GetDataController::class, 'update']);
 
-//Search student detali route.
-Route::get('/search',[GetDataController::class,'search']);
+// Search Student
+Route::get('/search', [GetDataController::class, 'search']);
 
+// Pagination
+Route::get('/pagination', [GetDataController::class, 'pagination']);
 
+// Multiple Delete
+Route::post('/getstudent/multiple-delete', [GetDataController::class, 'multipleDelete']);

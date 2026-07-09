@@ -12,6 +12,7 @@
 
     <table border="1" cellpadding="10">
         <tr>
+            <th>Multiple select</th>
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
@@ -21,6 +22,7 @@
 
         @forelse($student as $item)
             <tr>
+                <td><input type="checkbox" name="ids[]" value="{{$student->id}}"></td>
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->email }}</td>
@@ -46,4 +48,11 @@
 
     </table>
 
+    {{$student->links()}}
 </div>
+
+<style>
+    .w-5.h-5{
+        width: 20px;
+    }
+</style>
