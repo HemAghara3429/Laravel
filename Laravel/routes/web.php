@@ -200,3 +200,6 @@ Route::get('/listphoto', [ImageController::class, 'listimage']);
 //layoutview route example.
 
 Route::view('/layoutview','layoutView');
+
+//css and js example.
+Route::view('/css-js', 'cssandjsview');
