@@ -19,6 +19,7 @@ use App\Http\Controllers\FlashSessionController;
 use App\Http\Controllers\GetDataController;
 use App\Http\Controllers\RouteMethodController;
 use App\Http\Controllers\HttpRequestController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\InsertDataController;
 use App\Http\Controllers\SearchController;
 Use App\Http\Controllers\SessionController;
@@ -187,3 +188,11 @@ Route::post('/getstudent/multiple-delete', [GetDataController::class, 'multipleD
 Route::get('/getstudent/multiple-delete', function () {
     return redirect('/getstudent/list');
 });
+
+
+//upload file route.
+Route::view('/upload', 'upload');
+
+Route::post('/upload', [ImageController::class, 'upload']);
+
+Route::get('/listphoto', [ImageController::class, 'listimage']);
