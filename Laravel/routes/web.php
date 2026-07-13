@@ -25,6 +25,7 @@ use App\Http\Controllers\pagination;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\SearchController;
 Use App\Http\Controllers\SessionController;
+use App\Http\Controllers\SortingController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\ValidationController;
 
@@ -224,3 +225,7 @@ Route::get('paginationdata',[pagination::class,'index']);
 
 
 Route::get('/search', [SearchController::class, 'search']);
+
+//Sorting functionality example .
+
+Route::get('/sorting',[SortingController::class,'sorting']);
