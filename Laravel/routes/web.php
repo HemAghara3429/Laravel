@@ -13,6 +13,7 @@ use App\Http\Middleware\CountryCheck;
 use App\Http\Controllers\Databasecontroller;
 use App\Http\Controllers\DatabaseTableViewController;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\QueryBuilderController;
 use App\Http\Controllers\EloquentQueryController;
 use App\Http\Controllers\FlashSessionController;
@@ -238,3 +239,11 @@ Route::get('/sorting',[SortingController::class,'sorting']);
 Route::get('/onetoone', [OneToOneRelationshipController::class, 'index']);
 Route::get('/onetomany',[OneToManyRelationshipController::class,'index']);
 Route::get('/manytomany', [ManyToManyRelationshipController::class, 'index']);
+
+//Accessors & Mutators are special methods in Laravel's Eloquent Model.
+
+//An Accessor automatically modifies data when retrieving it from the database.
+// A Mutator automatically modifies data before saving it into the database.
+Route::get('/city', [CityController::class, 'index']);
+
+Route::get('/city-store', [CityController::class, 'store']);
