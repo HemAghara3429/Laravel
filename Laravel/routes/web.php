@@ -21,6 +21,9 @@ use App\Http\Controllers\RouteMethodController;
 use App\Http\Controllers\HttpRequestController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\InsertDataController;
+use App\Http\Controllers\ManyToManyRelationshipController;
+use App\Http\Controllers\OneToManyRelationshipController;
+use App\Http\Controllers\OneToOneRelationshipController;
 use App\Http\Controllers\pagination;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\SearchController;
@@ -229,3 +232,9 @@ Route::get('/search', [SearchController::class, 'search']);
 //Sorting functionality example .
 
 Route::get('/sorting',[SortingController::class,'sorting']);
+
+//Eloquent Relationship example..
+
+Route::get('/onetoone', [OneToOneRelationshipController::class, 'index']);
+Route::get('/onetomany',[OneToManyRelationshipController::class,'index']);
+Route::get('/manytomany', [ManyToManyRelationshipController::class, 'index']);
