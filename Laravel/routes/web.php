@@ -219,3 +219,8 @@ Route::post('/student/save',[ValidationController::class,'store']);
 
 //pagination route example.
 Route::get('paginationdata',[pagination::class,'index']);
+
+//search functionality route example....
+
+
+Route::get('/search', [SearchController::class, 'search']);
