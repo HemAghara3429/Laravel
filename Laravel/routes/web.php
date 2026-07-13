@@ -21,6 +21,7 @@ use App\Http\Controllers\RouteMethodController;
 use App\Http\Controllers\HttpRequestController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\InsertDataController;
+use App\Http\Controllers\pagination;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\SearchController;
 Use App\Http\Controllers\SessionController;
@@ -213,4 +214,8 @@ Route::post('/student/save',[ValidationController::class,'store']);
 
 //resource routing
 
-Route::resource('student', [ResourceController::class]);
+// Route::resource('student',ResourceController::class);
+
+
+//pagination route example.
+Route::get('paginationdata',[pagination::class,'index']);
