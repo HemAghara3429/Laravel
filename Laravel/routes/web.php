@@ -21,6 +21,7 @@ use App\Http\Controllers\RouteMethodController;
 use App\Http\Controllers\HttpRequestController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\InsertDataController;
+use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\SearchController;
 Use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UploadController;
@@ -210,3 +211,6 @@ Route::view('/css-js', 'cssandjsview');
 Route::get('/student/form',[ValidationController::class,'create']);
 Route::post('/student/save',[ValidationController::class,'store']);
 
+//resource routing
+
+Route::resource('student', [ResourceController::class]);
