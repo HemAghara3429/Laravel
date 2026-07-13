@@ -24,6 +24,7 @@ use App\Http\Controllers\InsertDataController;
 use App\Http\Controllers\SearchController;
 Use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\ValidationController;
 
 Route::get('/',function(){
     return view('welcome');
@@ -203,3 +204,9 @@ Route::view('/layoutview','layoutView');
 
 //css and js example.
 Route::view('/css-js', 'cssandjsview');
+
+//validation form route example
+
+Route::get('/student/form',[ValidationController::class,'create']);
+Route::post('/student/save',[ValidationController::class,'store']);
+
