@@ -91,37 +91,37 @@
 
                 <tr>
 
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
 
-                </tr>
+    </tr>
 
                 </thead>
 
                 <tbody>
 
-                @foreach($data as $student)
+    @foreach($data as $student)
 
-                    <tr>
+        <tr>
 
-                        <td>{{ $student->id }}</td>
+            <td>{{ $student->id }}</td>
 
-                        <td>{{ $student->name }}</td>
+            <td>{{ $student->name }}</td>
 
-                        <td>{{ $student->email }}</td>
+            <td>{{ $student->email }}</td>
 
-                    </tr>
+        </tr>
 
-                @endforeach
+    @endforeach
 
                 </tbody>
 
-            </table>
+</table>
 
             <div class="d-flex justify-content-center">
 
-                {{ $data->links() }}
+{{ $data->links() }}
 
             </div>
 
