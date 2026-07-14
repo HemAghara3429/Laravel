@@ -251,3 +251,10 @@ Route::get('/city-store', [CityController::class, 'store']);
 //database seeder..
 //Database Seeder is a very useful feature in Laravel.
 //It allows you to insert dummy (sample) data into the database automatically.
+
+//games table use please check in database also use GameSeeder.php use please check.
+
+//Model Factory:is a Laravel feature used to generate fake (dummy) data automatically for your database.
+//Model Factories are mainly used during development and testing.
+//use the database seeder and address model and address factory use in this code
+
