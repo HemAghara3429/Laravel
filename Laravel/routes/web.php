@@ -247,3 +247,7 @@ Route::get('/manytomany', [ManyToManyRelationshipController::class, 'index']);
 Route::get('/city', [CityController::class, 'index']);
 
 Route::get('/city-store', [CityController::class, 'store']);
+
+//database seeder..
+//Database Seeder is a very useful feature in Laravel.
+//It allows you to insert dummy (sample) data into the database automatically.
