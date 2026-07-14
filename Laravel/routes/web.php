@@ -33,6 +33,7 @@ use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SortingController;
+use App\Http\Controllers\StateController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\ValidationController;
 
@@ -298,3 +299,7 @@ Route::get('/reset-password', function () {
 });
 // Update Password
 Route::post('/reset-password', [LoginController::class, 'resetPassword']);
+
+
+//REST API Introduction:APIs to communicate between the Frontend and the Backend 
+Route::apiResource('states', StateController::class);
