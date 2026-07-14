@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\BankController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BladeController;
@@ -301,5 +302,8 @@ Route::get('/reset-password', function () {
 Route::post('/reset-password', [LoginController::class, 'resetPassword']);
 
 
-//REST API Introduction:APIs to communicate between the Frontend and the Backend 
+//REST API Introduction:APIs to communicate between the Frontend and the Backend
 Route::apiResource('states', StateController::class);
+
+//resource route example.
+Route::apiResource('banks', BankController::class);
