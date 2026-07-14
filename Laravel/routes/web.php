@@ -13,6 +13,7 @@ use App\Http\Middleware\CountryCheck;
 use App\Http\Controllers\Databasecontroller;
 use App\Http\Controllers\DatabaseTableViewController;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\AtmController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\QueryBuilderController;
 use App\Http\Controllers\EloquentQueryController;
@@ -257,4 +258,8 @@ Route::get('/city-store', [CityController::class, 'store']);
 //Model Factory:is a Laravel feature used to generate fake (dummy) data automatically for your database.
 //Model Factories are mainly used during development and testing.
 //use the database seeder and address model and address factory use in this code
+
+
+//Database Transactions :A transaction ensures that either all database operations are completed successfully or none of them are saved.
+Route::get('/transfer-money', [AtmController::class, 'transferMoney']);
 
